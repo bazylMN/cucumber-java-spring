@@ -21,15 +21,14 @@ dependencies {
 
     testCompile group: 'io.cucumber', name: 'cucumber-java8', version: '4.2.0'
     testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '4.2.0'
-    compile group: 'io.cucumber', name: 'cucumber-spring', version: '4.2.0'
+    testCompile group: 'io.cucumber', name: 'cucumber-spring', version: '4.2.0'
 
     testCompile group: 'com.codeborne', name: 'selenide', version: '4.10.01'
 
-    compile group: 'org.springframework', name: 'spring-context', version: '5.1.3.RELEASE'
+    testCompile group: 'org.springframework', name: 'spring-context', version: '5.1.3.RELEASE'
     testCompile group: 'org.springframework', name: 'spring-test', version: '5.1.3.RELEASE'
 
-    testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
-    testCompile group: 'log4j', name: 'log4j', version: '1.2.17'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.12.2'
 }
 
 task deleteCucumberReports(type: Delete) {
