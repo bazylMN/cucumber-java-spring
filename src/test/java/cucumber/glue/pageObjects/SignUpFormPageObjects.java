@@ -32,33 +32,34 @@ public class SignUpFormPageObjects {
         /**
          * lamdbda-way to send keys (imagine there is no id for inputs):
          */
-        sendKeysForInputWithAttrubuteName("login", login);
-        sendKeysForInputWithAttrubuteName("email", email);
-        sendKeysForInputWithAttrubuteName("password", password);
+        sendKeysForInputWithAttributeName("login", login);
+        sendKeysForInputWithAttributeName("email", email);
+        sendKeysForInputWithAttributeName("password", password);
     }
 
     public String shouldSeeLoginData() {
-        String script = "return document.getElementById('"+ USER_LOGIN + "').value";
-        JavascriptExecutor js=(JavascriptExecutor)sessionManager.driver();
-        return (String)js.executeScript(script);
+        return javaScriptGetData(USER_LOGIN);
     }
 
     public String shouldSeeEmailData() {
-        JavascriptExecutor js=(JavascriptExecutor)sessionManager.driver();
-        return (String)js.executeScript("return document.getElementById('"+ USER_EMAIL +"').value");
+        return javaScriptGetData(USER_EMAIL);
     }
 
     public String shouldSeePasswordData() {
-        JavascriptExecutor js=(JavascriptExecutor)sessionManager.driver();
-        return (String)js.executeScript("return document.getElementById('"+ USER_PASSWORD +"').value");
+        return javaScriptGetData(USER_PASSWORD);
     }
 
-    private void sendKeysForInputWithAttrubuteName(String partValueName, String keyToSend){
+    private void sendKeysForInputWithAttributeName(String partValueName, String keyToSend){
         sessionManager.driver().findElements(By.cssSelector(USER_INPUT))
                 .stream()
                 .filter(elem->elem.getAttribute(USER_INPUT_ATTRIBUTE_NAME).contains(partValueName))
                 .findFirst()
                 .get()
                 .sendKeys(keyToSend);
+    }
+
+    private String javaScriptGetData(String data){
+        JavascriptExecutor js=(JavascriptExecutor)sessionManager.driver();
+        return (String)js.executeScript("return document.getElementById('"+ data +"').value");
     }
 }
