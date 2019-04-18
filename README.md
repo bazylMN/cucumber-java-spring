@@ -1,5 +1,5 @@
 # Cucumber-java-spring template
-#### with Cucumber-java, Cucumber Spring, custom annotation @PageObject, lambda expression ready, Selenide library and session manager (Selenium WebDriver) for:
+#### with Cucumber-java8, Cucumber Spring, custom annotation @PageObject, lambda expression ready, Selenide library and session manager (Selenium WebDriver) for:
 * ##### chrome
 
 ### Prerequisites
